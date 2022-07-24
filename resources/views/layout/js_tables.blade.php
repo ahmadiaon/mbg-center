@@ -1,3 +1,5 @@
+<!-- welcome modal end -->
+<!-- js -->
 <script src="{{ env('APP_URL') }}vendors/scripts/core.js"></script>
 <script src="{{ env('APP_URL') }}vendors/scripts/script.min.js"></script>
 <script src="{{ env('APP_URL') }}vendors/scripts/process.js"></script>
@@ -17,6 +19,5 @@
 <!-- Datatable Setting js -->
 <script src="{{ env('APP_URL') }}vendors/scripts/datatable-setting.js"></script>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
-                style="display: none; visibility: hidden"></iframe></noscript>
+
 <!-- End Google Tag Manager (noscript) -->

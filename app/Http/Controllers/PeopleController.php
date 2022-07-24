@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\people;
-use App\Http\Requests\StorepeopleRequest;
-use App\Http\Requests\UpdatepeopleRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Models\People;
+use Yajra\Datatables\Datatables;
+use App\Models\Position;
 
 class PeopleController extends Controller
 {
@@ -13,9 +15,23 @@ class PeopleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function anyData()
+    {
+
+        return Datatables::of(People::query())->make(true);
+            
+    }
+
     public function index()
     {
-        //
+        // return People::all();
+        $peoples = People::query()->orderBy('created_at', 'DESC')->get();
+        // $peoples = Datatables::of(People::query())->make(true);
+
+        return view('admin.people.index', [
+            'title'         => 'People',
+            'peoples'       => $peoples
+        ]);
     }
 
     /**
@@ -25,7 +41,9 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.people.create', [
+            'title'         => 'Add People',
+        ]);
     }
 
     /**

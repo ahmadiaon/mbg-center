@@ -5,17 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\Position;
 use App\Http\Requests\StorePositionRequest;
 use App\Http\Requests\UpdatePositionRequest;
+use Yajra\Datatables\Datatables;
+use App\Models\People;
 
 class PositionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function anyData()
+    {
+
+        return Datatables::of(People::query())->make(true);
+            
+    }
+
     public function index()
     {
-        //
+        // return People::all();
+        $peoples = People::query()->orderBy('created_at', 'DESC')->get();
+        // $peoples = Datatables::of(People::query())->make(true);
+
+        return view('admin.position.index', [
+            'title'         => 'People',
+            'peoples'       => $peoples
+        ]);
     }
 
     /**
@@ -25,7 +36,9 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.position.create', [
+            'title'         => 'Add People',
+        ]);
     }
 
     /**

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\PositionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,5 +18,10 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('admin', [AdminController::class, 'index']);
+// Route::get('admin/people/', [PeopleController::class, 'index']);
+Route::resource('admin/people/', PeopleController::class);
+Route::get('/people-data', [PeopleController::class, 'anyData'])->name('people-data');
 
+Route::resource('admin/position/', PositionController::class);
+Route::get('/position-data', [PositionController::class, 'anyData'])->name('position-data');
