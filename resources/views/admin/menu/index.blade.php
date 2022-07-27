@@ -1,4 +1,4 @@
-@extends('layout.main_tables')
+@extends('layout.main_menu')
 @section('content')
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -56,9 +56,6 @@
                             <tr>
                                 <th class="table-plus datatable-nosort">Name</th>
                                 <th>Age</th>
-                                <th>Office</th>
-                                <th>Address</th>
-                                <th>Start Date</th>
                             </tr>
                         </thead>
                     </table>
@@ -86,10 +83,7 @@
             ajax: '{!! route('people-data') !!}',
             columns: [
                 { data: 'name', name: 'name' },
-                { data: 'phone_number', name: 'phone_number' },
-                { data: 'NIK', name: 'NIK' },
-                { data: 'address', name: 'address' },
-                { data: 'action', name: 'action' }
+                { data: 'phone_number', name: 'phone_number' }
             ]
         });
     });

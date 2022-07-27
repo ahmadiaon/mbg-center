@@ -13,16 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('pohs', function (Blueprint $table) {
             $table->id();
-
-            // foreign key
-            $table->integer('people_id')->nullable();
-            $table->integer('position_id')->nullable();
-            $table->integer('department_id')->nullable();
-            $table->integer('POH_id')->nullable();//dalam kabupaten, luar kabupaten, luar pulau
-
-            
+            $table->string('name')->nullable();
+            $table->integer('value')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('pohs');
     }
 };

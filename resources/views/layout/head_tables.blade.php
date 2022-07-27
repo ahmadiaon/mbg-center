@@ -10,6 +10,9 @@
 <link rel="stylesheet" type="text/css" href="{{ env('APP_URL') }}vendors/styles/style.css" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
+
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> --}}
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

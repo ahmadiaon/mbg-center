@@ -18,19 +18,24 @@ class PeopleController extends Controller
     public function anyData()
     {
 
-        return Datatables::of(People::query())->make(true);
+        return Datatables::of(People::query())
+        ->addColumn('action', function ($model) {
+            return '<a class="text-decoration-none" href="/admin/' . $model->id . '/edit"><button class="btn btn-warning py-1 px-2 mr-1"><i class="icon-copy dw dw-pencil"></i></button></a>
+            <button onclick="myFunction(' . $model->id . ')"  type="button" class="btn btn-danger  py-1 px-2"><i class="icon-copy dw dw-trash"></i></button>';
+        })
+
+        ->make(true);
             
     }
 
     public function index()
     {
         // return People::all();
-        $peoples = People::query()->orderBy('created_at', 'DESC')->get();
+        // $peoples = People::query()->orderBy('created_at', 'DESC')->get();
         // $peoples = Datatables::of(People::query())->make(true);
 
         return view('admin.people.index', [
-            'title'         => 'People',
-            'peoples'       => $peoples
+            'title'         => 'People'
         ]);
     }
 

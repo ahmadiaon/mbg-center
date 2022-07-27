@@ -1,4 +1,4 @@
-@extends('layout.main_tables')
+@extends('layout.main_table')
 @section('content')
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -37,21 +37,20 @@
             <!-- Simple Datatable start -->
             <div class="card-box mb-30">
                 <div class="pd-20">
-
+                    <h4 class="text-blue h4">Data People</h4>
                     <div class="row">
+                        <div class="col-6"></div>
                         <div class="col-6">
-                            <h4 class="text-blue h4">Data People</h4>
-                        </div>
-                        <div class="col">
-                            <div class="mb-0 float-right">
-                                <a href="" class="btn btn-primary">add</a>
-                            </div>
+                            <p class="mb-0 right">
+                                you can find more options <a href="create">Add</a>
+                                <a class="text-primary" href="https://datatables.net/" target="_blank">Click Here</a>
+                            </p>
                         </div>
                     </div>
 
                 </div>
                 <div class="pb-20">
-                    <table id="myTablse" class="table table-stripped">
+                    <table id="myTable" class="data-table table stripe hover nowrap">
                         <thead>
                             <tr>
                                 <th class="table-plus datatable-nosort">Name</th>
@@ -61,12 +60,22 @@
                                 <th>Start Date</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @foreach($peoples as $people)
+                            <tr>
+                                <td class="table-plus">Andrea J. Cagle</td>
+                                <td>18</td>
+                                <td>Gemini</td>
+                                <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
+                                <td>29-03-2018</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
             <!-- Simple Datatable End -->
 
-            <!-- Export Datatable End -->
         </div>
         <div class="footer-wrap pd-20 mb-20 card-box">
             DeskApp - Bootstrap 4 Admin Template By
@@ -79,19 +88,8 @@
 
 @section('js')
 <script>
-    $(function() {
-        $('#myTablse').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{!! route('people-data') !!}',
-            columns: [
-                { data: 'name', name: 'name' },
-                { data: 'phone_number', name: 'phone_number' },
-                { data: 'NIK', name: 'NIK' },
-                { data: 'address', name: 'address' },
-                { data: 'action', name: 'action' }
-            ]
-        });
-    });
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
 </script>
 @endsection

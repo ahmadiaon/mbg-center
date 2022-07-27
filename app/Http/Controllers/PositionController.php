@@ -12,8 +12,15 @@ class PositionController extends Controller
 {
     public function anyData()
     {
+        return Datatables::of(Position::query())
+        ->addColumn('action', function ($model) {
+            $url = "/admin/position/";
+            $urls = "'".$url."delete/'";
+            return '<a class="text-decoration-none" href="'.$url . $model->id . '/edit"><button class="btn btn-warning py-1 px-2 mr-1"><i class="icon-copy dw dw-pencil"></i></button></a>
+            <button onclick="isDelete(' . $model->id . ','.$urls.')"  type="button" class="btn btn-danger  py-1 px-2"><i class="icon-copy dw dw-trash"></i></button>';
+        })
 
-        return Datatables::of(People::query())->make(true);
+        ->make(true);
             
     }
 

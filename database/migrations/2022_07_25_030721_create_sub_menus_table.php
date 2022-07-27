@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('sub_menus', function (Blueprint $table) {
             $table->id();
 
             // foreign key
-            $table->integer('people_id')->nullable();
-            $table->integer('position_id')->nullable();
-            $table->integer('department_id')->nullable();
-            $table->integer('POH_id')->nullable();//dalam kabupaten, luar kabupaten, luar pulau
+            $table->integer('menu_id')->nullable();
+            // foreign key
+            $table->string('name')->nullable();  
 
-            
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('sub_menus');
     }
 };
