@@ -1,9 +1,6 @@
 <!-- welcome modal end -->
 <!-- js -->
-<script src="{{ env('APP_URL') }}vendors/scripts/core.js"></script>
-<script src="{{ env('APP_URL') }}vendors/scripts/script.min.js"></script>
-<script src="{{ env('APP_URL') }}vendors/scripts/process.js"></script>
-<script src="{{ env('APP_URL') }}vendors/scripts/layout-settings.js"></script>
+@include('layout.js_core')
 <script src="{{ env('APP_URL') }}src/plugins/datatables/js/jquery.dataTables.min.js"></script>
 <script src="{{ env('APP_URL') }}src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
 <script src="{{ env('APP_URL') }}src/plugins/datatables/js/dataTables.responsive.min.js"></script>

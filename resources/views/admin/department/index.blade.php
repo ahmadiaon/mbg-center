@@ -49,17 +49,10 @@
                                     <h4 class="text-blue h4">List Department</h4>
                                 </div>
                                 <div class="col">
-
-
-                                    <div class="col">
-                                        <button type="button" onclick="addDepartment()"
-                                            class="btn float-right btn-outline-primary">
-                                            <i class="icon-copy bi bi-plus-square-fill pr-30"></i>Add
-                                        </button>
-                                    </div>
-
-
-
+                                    <button type="button" onclick="addDepartment()"
+                                        class="btn float-right btn-outline-primary">
+                                        <i class="icon-copy bi bi-plus-square-fill pr-30"></i>Add
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -79,41 +72,103 @@
                     </div>
                     {{-- Departement Table Ende --}}
 
-                    {{-- HM BK Table --}}
+                    {{-- vihicle Table --}}
                     <div class="card-box mb-30">
                         <div class="pd-20">
 
                             <div class="row">
                                 <div class="col-6">
-                                    <h4 class="text-blue h4">List Department</h4>
+                                    <h4 class="text-blue h4">List Vehicle</h4>
                                 </div>
                                 <div class="col">
-                                    <p class="mb-0">
-                                        <a class="text-primary" href="create" target="_blank">
-                                            add</a>
-                                    </p>
+                                    <button type="button" onclick="addVehicle()"
+                                        class="btn float-right btn-outline-primary">
+                                        <i class="icon-copy bi bi-plus-square-fill pr-30"></i>Add
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <div class="pd-20 card-box mb-20">
                             <div class="pb-20">
-                                <table id="departmentsTable" class="table table-stripped">
+                                <table id="vehicleTable" class="table table-stripped">
                                     <thead>
                                         <tr>
                                             <th width="80%" class="table-plus datatable">Name</th>
                                             <th width="20%">Action</th>
                                         </tr>
                                     </thead>
-
                                 </table>
-
                             </div>
                         </div>
                     </div>
-                    {{-- HM BK Table Ende --}}
+                    {{-- vihicle Table End --}}
+
+                    {{-- unit group Table --}}
+                    <div class="card-box mb-30">
+                        <div class="pd-20">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="text-blue h4">List Unit Group</h4>
+                                </div>
+                                <div class="col">
+                                    <button type="button" onclick="addVehicle()"
+                                        class="btn float-right btn-outline-primary">
+                                        <i class="icon-copy bi bi-plus-square-fill pr-30"></i>Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pd-20 card-box mb-20">
+                            <div class="pb-20">
+                                <table id="vehicleTable" class="table table-stripped">
+                                    <thead>
+                                        <tr>
+                                            <th width="80%" class="table-plus datatable">Name</th>
+                                            <th width="20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- unit group Table End --}}
+                    {{-- unit Table --}}
+                    <div class="card-box mb-30">
+                        <div class="pd-20">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="text-blue h4">List Unit</h4>
+                                </div>
+                                <div class="col">
+                                    <button type="button" onclick="addVehicle()"
+                                        class="btn float-right btn-outline-primary">
+                                        <i class="icon-copy bi bi-plus-square-fill pr-30"></i>Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pd-20 card-box mb-20">
+                            <div class="pb-20">
+                                <table id="vehicleTable" class="table table-stripped">
+                                    <thead>
+                                        <tr>
+                                            <th width="80%" class="table-plus datatable">Name</th>
+                                            <th width="20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- unit Table End --}}
                 </div>
                 {{-- end kiri --}}
+
+                {{-- kanan --}}
                 <div class="col-6">
+                    {{-- tabel Position --}}
                     <div class="card-box mb-30">
                         <div class="pd-20">
 
@@ -122,11 +177,10 @@
                                     <h4 class="text-blue h4">List Positions</h4>
                                 </div>
                                 <div class="col">
-                                    <p class="mb-0">
-                                        you can find more options <a href="create">add</a>
-                                        <a class="text-primary" href="https://datatables.net/" target="_blank">Click
-                                            Here</a>
-                                    </p>
+                                    <button type="button" onclick="addPosition()"
+                                        class="btn float-right btn-outline-primary">
+                                        <i class="icon-copy bi bi-plus-square-fill pr-30"></i>Add
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -140,47 +194,45 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-
                                 </table>
-
                             </div>
                         </div>
                     </div>
+                    {{-- end tabel Position --}}
+                    {{-- tabel religion --}}
                     <div class="card-box mb-30">
                         <div class="pd-20">
 
                             <div class="row">
                                 <div class="col-6">
-                                    <h4 class="text-blue h4">List Positions</h4>
+                                    <h4 class="text-blue h4">List Religion</h4>
                                 </div>
                                 <div class="col">
-                                    <p class="mb-0">
-                                        you can find more options <a href="create">add</a>
-                                        <a class="text-primary" href="https://datatables.net/" target="_blank">Click
-                                            Here</a>
-                                    </p>
+                                    <button disabled="disabled" type="button" onclick="addPosition()"
+                                        class="btn float-right btn-outline-primary">
+                                        <i class="icon-copy bi bi-plus-square-fill pr-30"></i>Add
+                                    </button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="pd-20 card-box mb-20">
                             <div class="pb-20">
-                                <table id="positionTable" class="data-table table stripe hover ">
+                                <table id="religionTable" class="table table-stripped">
                                     <thead>
                                         <tr>
                                             <th width="80%" class="table-plus datatable">Name</th>
                                             <th width="20%">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
+                    {{-- end tabel religion --}}
                 </div>
+                {{-- end kanan --}}
             </div>
-
         </div>
         <!-- Simple Datatable End -->
     </div>
@@ -193,6 +245,11 @@
     </div>
 </div>
 </div>
+
+
+@include('admin.position.modal')
+
+
 
 
 {{-- modal add department --}}
@@ -250,7 +307,7 @@
                         NO
                     </div>
                     <div class="col-6">
-                        <form id="form_id" action="/admin/department/delete/13" method="post" class="d-inline">
+                        <form id="form_id" action="" method="post" class="d-inline">
 
                             <button type="button" id="delete_this_department" onclick="deleteData()"
                                 class="btn btn-primary border-radius-100 btn-block confirmation-btn"
@@ -267,21 +324,12 @@
 
 
 @section('js')
-<script>
-    function addDepartment() {
-        $('#label_department').text("Add Department");
-        $('#id').val('');
-        $('#department').val('');
-        $('#add_department_modal').modal('show');
-
-    }
-
-</script>
+@include('admin.department.js')
+@include('admin.position.js')
 <script>
     function createPost(url_create) {
         var department = $('#department').val();
         var id = $('#id').val();
-
         let _url = url_create;
         let _token   = $('meta[name="csrf-token"]').attr('content');
         let url_edit = "'"+_url
@@ -300,7 +348,6 @@
                   if(response.code == 200) {
                     if(id != ""){
                         
-
                         $("#departmentTable").find('input').each(function(){
                             if($(this).val() == response.data.id){
                                 $(this).closest('tr').remove()
@@ -333,7 +380,6 @@
             $('#label_department').text("Edit Department");
             console.log(url_edit)
             $('.modal-backdrop').remove();
-
             $('#departmentError').text('');
         
             $.ajax({
@@ -382,14 +428,32 @@
         });
     });
 </script>
+
+
+{{-- Show All Position --}}
+<script>
+    $(function() {
+        $('#religionTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('religion-data') !!}',
+            columns: [
+                { data: 'religion', name: 'religion' },
+                { data: 'action', name: 'action ' }
+            ]
+        });
+    });
+</script>
+
+
 {{-- func delete --}}
+
 <script>
     function isDelete(id, url) {
         $('.modal-backdrop').remove();
         $("#department_delete_modal").modal('show');
         var action  = url;
         document.getElementById("form_id").action = action+id;
-
         var element = document.getElementById("delete_this_department");
         element.onclick = function(event) {
             console.log(url+id);
@@ -405,7 +469,6 @@
                 success: function(response) {
                     console.log(response.data.department)
                     $("#departmentTable tr td:contains("+response.data.department+")").parent().remove();
-                  
                 }
                 });
         }

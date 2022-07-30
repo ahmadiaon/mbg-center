@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('unit_id')->nullable(); 
-
-            $table->integer('code')->nullable(); 
+            // foreigen key 
+            $table->string('unit_group_id')->nullable();  
+            
+            $table->string('code')->nullable();
+            $table->integer('number')->nullable();
             $table->timestamps();
         });
     }

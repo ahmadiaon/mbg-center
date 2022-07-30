@@ -101,6 +101,16 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
+                <li>
+                    <a href="/admin/people" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-calendar4-week"></span><span class="mtext">People</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/department" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-calendar4-week"></span><span class="mtext">Database</span>
+                    </a>
+                </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon bi bi-house"></span><span class="mtext">Home</span>

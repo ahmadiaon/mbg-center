@@ -27,8 +27,7 @@ class DepartmentController extends Controller
     }
     public function index()
     {
-        $departments = Department::all();
-        $positions = Position::all();
+        
         return view('admin.department.index', [
             'title'         => 'Department'
         ]);
@@ -42,6 +41,7 @@ class DepartmentController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**

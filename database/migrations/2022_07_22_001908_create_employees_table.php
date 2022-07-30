@@ -17,10 +17,20 @@ return new class extends Migration
             $table->id();
 
             // foreign key
+            $table->integer('employee_id')->nullable();
+
             $table->integer('people_id')->nullable();
             $table->integer('position_id')->nullable();
             $table->integer('department_id')->nullable();
-            $table->integer('POH_id')->nullable();//dalam kabupaten, luar kabupaten, luar pulau
+
+            $table->string('NIK_employee')->nullable();
+            $table->integer('salary')->nullable();
+            $table->integer('insentif')->nullable();
+            $table->integer('premi_bk')->nullable();
+            $table->integer('premi_nbk')->nullable();
+            $table->integer('premi_kayu')->nullable();
+            $table->integer('premi_mb')->nullable();
+            $table->integer('premi_rj')->nullable();
 
             
             $table->timestamps();

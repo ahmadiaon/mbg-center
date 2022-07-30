@@ -44,7 +44,7 @@
                         </div>
                         <div class="col">
                             <div class="mb-0 float-right">
-                                <a href="" class="btn btn-primary">add</a>
+                                <a href="/admin/people/create" class="btn btn-primary">add</a>
                             </div>
                         </div>
                     </div>
@@ -54,11 +54,12 @@
                     <table id="myTablse" class="table table-stripped">
                         <thead>
                             <tr>
+
                                 <th class="table-plus datatable-nosort">Name</th>
-                                <th>Age</th>
-                                <th>Office</th>
+                                <th>Phone Number</th>
+                                <th>NIK</th>
                                 <th>Address</th>
-                                <th>Start Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                     </table>
@@ -87,8 +88,8 @@
             columns: [
                 { data: 'name', name: 'name' },
                 { data: 'phone_number', name: 'phone_number' },
-                { data: 'NIK', name: 'NIK' },
-                { data: 'address', name: 'address' },
+                { data: 'NIK_number', name: 'NIK_number' },
+                { data: 'poh_place', name: 'poh_place' },
                 { data: 'action', name: 'action' }
             ]
         });
