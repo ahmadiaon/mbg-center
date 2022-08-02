@@ -39,10 +39,6 @@ class PeopleController extends Controller
 
     public function index()
     {
-        // return People::all();
-        // $peoples = People::query()->orderBy('created_at', 'DESC')->get();
-        // $peoples = Datatables::of(People::query())->make(true);
-
         return view('admin.people.index', [
             'title'         => 'People'
         ]);

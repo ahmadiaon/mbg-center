@@ -18,7 +18,7 @@ return new class extends Migration
             
             $table->integer('unit_id')->nullable();  
             
-            $table->string('name')->nullable();
+            $table->string('unit_group')->nullable();
             $table->integer('capacity')->nullable();
 
             $table->timestamps();

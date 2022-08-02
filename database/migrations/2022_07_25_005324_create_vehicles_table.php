@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
 
             // foreigen key 
-            $table->string('unit_group_id')->nullable();  
+            $table->integer('vehicle_group_id')->nullable();  
             
-            $table->string('code')->nullable();
             $table->integer('number')->nullable();
             $table->timestamps();
         });

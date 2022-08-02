@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Position;
-use App\Http\Requests\StorePositionRequest;
-use App\Http\Requests\UpdatePositionRequest;
 use Yajra\Datatables\Datatables;
 use App\Models\People;
+use Illuminate\Http\Request;
 
 class PositionController extends Controller
 {
@@ -15,9 +14,10 @@ class PositionController extends Controller
         return Datatables::of(Position::query())
         ->addColumn('action', function ($model) {
             $url = "/admin/position/";
-            $urls = "'".$url."delete/'";
-            return '<a class="text-decoration-none" href="'.$url . $model->id . '/edit"><button class="btn btn-warning py-1 px-2 mr-1"><i class="icon-copy dw dw-pencil"></i></button></a>
-            <button onclick="isDelete(' . $model->id . ','.$urls.')"  type="button" class="btn btn-danger  py-1 px-2"><i class="icon-copy dw dw-trash"></i></button>';
+            $url_edit = "'".$url.$model->id."'";
+            $url_delete = "'".$url."delete/'";
+            return '<input type="hidden" value="'. $model->id .'"><button id="'.$model->id .'" onclick="runEditPosition(' . $model->id . ','.$url_edit.')"  class="btn btn-warning py-1 px-2 mr-1"><i class="icon-copy dw dw-pencil"></i></button>
+            <button onclick="isDeletePosition(' . $model->id . ','.$url_delete.')"  type="button" class="btn btn-danger  py-1 px-2"><i class="icon-copy dw dw-trash"></i></button>';
         })
 
         ->make(true);
@@ -54,9 +54,20 @@ class PositionController extends Controller
      * @param  \App\Http\Requests\StorePositionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePositionRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'position'      => 'required',
+        ]);
+
+        
+        $positions = Position::updateOrCreate(['id' => $request->id], [
+            'position' => $request->position
+          ]);
+
+        
+        return response()->json(['code'=>200, 'message'=>'Post Created successfully','data' => $positions], 200);
+
     }
 
     /**
@@ -65,9 +76,11 @@ class PositionController extends Controller
      * @param  \App\Models\Position  $position
      * @return \Illuminate\Http\Response
      */
-    public function show(Position $position)
+    public function show($position)
     {
-        //
+        $positions = Position::find($position);
+
+        return response()->json($positions);
     }
 
     /**
@@ -99,8 +112,11 @@ class PositionController extends Controller
      * @param  \App\Models\Position  $position
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Position $position)
+    public function destroy($position)
     {
-        //
+        $data = Position::where('id', $position)->first();
+        $post= Position::find($position)->delete();
+        return response()->json(['code'=>200, 'message'=>'Data deleted successfully','data' => $data], 200);
+
     }
 }

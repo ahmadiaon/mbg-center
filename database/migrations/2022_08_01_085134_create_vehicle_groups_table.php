@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
+        Schema::create('vehicle_groups', function (Blueprint $table) {
             $table->id();
-
-            $table->string('unit')->nullable();   
+            $table->integer('unit_group_id')->nullable();
+            $table->string('vehicle_group')->nullable();
+            $table->string('vehicle_code')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('units');
+        Schema::dropIfExists('vehicle_groups');
     }
 };

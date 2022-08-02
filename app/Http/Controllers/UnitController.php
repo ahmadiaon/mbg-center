@@ -3,19 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Unit;
-use App\Http\Requests\StoreUnitRequest;
-use App\Http\Requests\UpdateUnitRequest;
+use Yajra\Datatables\Datatables;
+
+use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function anyData()
+    {
+
+        return Datatables::of(Unit::query())
+        ->addColumn('action', function ($model) {
+            $url = "/admin/unit/";
+            $url_edit = "'".$url.$model->id."'";
+            $url_delete = "'".$url."delete/'";
+            return '<input type="hidden" value="'. $model->id .'"><button id="'.$model->id .'" onclick="runEditUnit(' . $model->id . ','.$url_edit.')"  class="btn btn-warning py-1 px-2 mr-1"><i class="icon-copy dw dw-pencil"></i></button>
+            <button onclick="isDeleteUnit(' . $model->id . ','.$url_delete.')"  type="button" class="btn btn-danger  py-1 px-2"><i class="icon-copy dw dw-trash"></i></button>';
+        })
+        ->make(true);
+    }
     public function index()
     {
         //
+        return "aaa";
     }
 
     /**
@@ -34,28 +44,38 @@ class UnitController extends Controller
      * @param  \App\Http\Requests\StoreUnitRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUnitRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'unit'      => 'required',
+        ]);
+        $units = Unit::updateOrCreate(['id' => $request->id], [
+            'unit' => $request->unit
+          ]);
+        return response()->json(['code'=>200, 'message'=>'Post Created successfully','data' => $units], 200);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Unit $unit)
+    
+    public function show($unit)
     {
-        //
+        $units = Unit::find($unit);
+
+        return response()->json($units);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
+
+    public function allData()
+    {
+        
+        $units = Unit::all();
+        
+
+        return response()->json(['code'=>200, 'message'=>'Data deleted successfully', 'units' => $units], 200);
+    
+    }
+
+    
     public function edit(Unit $unit)
     {
         //
@@ -79,8 +99,12 @@ class UnitController extends Controller
      * @param  \App\Models\Unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unit $unit)
+    public function destroy($unit)
     {
         //
+        $data = Unit::where('id', $unit)->first();
+        $post= Unit::find($unit)->delete();
+        return response()->json(['code'=>200, 'message'=>'Data deleted successfully','data' => $data], 200);
+
     }
 }
