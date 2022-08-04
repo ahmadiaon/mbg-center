@@ -14,6 +14,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UnitGroupController;
 use App\Http\Controllers\VehicleGroupController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\OverBurdenController;
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 // 
@@ -76,6 +77,13 @@ Route::resource('/admin/department/', DepartmentController::class);
 Route::get('/admin/department/{department}', [DepartmentController::class, 'show']);
 Route::delete('/admin/department/delete/{department}', [DepartmentController::class, 'destroy']);
 Route::get('/department-data', [DepartmentController::class, 'anyData'])->name('department-data');
+
+
+
+// Over Burden
+Route::resource('/admin/ob/', OverBurdenController::class);
+Route::get('/ob-data', [OverBurdenController::class, 'anyData'])->name('ob-data');
+
 
 
 Route::resource('admin/menu/', MenuController::class);

@@ -152,55 +152,55 @@ class PeopleController extends Controller
             'father_place_birth'         => 'required',
             'father_date_birth'         => 'required',
 
-            'mother_in_law_name'         => 'required',
-            'mother_in_law_gender'         => 'required',
-            'mother_in_law_education'         => 'required',
-            'mother_in_law_place_birth'         => 'required',
-            'mother_in_law_date_birth'         => 'required',
+            'mother_in_law_name'         => '',
+            'mother_in_law_gender'         => '',
+            'mother_in_law_education'         => '',
+            'mother_in_law_place_birth'         => '',
+            'mother_in_law_date_birth'         => '',
 
-            'father_in_law_name'         => 'required',
-            'father_in_law_gender'         => 'required',
-            'father_in_law_education'         => 'required',
-            'father_in_law_place_birth'         => 'required',
-            'father_in_law_date_birth'         => 'required',
+            'father_in_law_name'         => '',
+            'father_in_law_gender'         => '',
+            'father_in_law_education'         => '',
+            'father_in_law_place_birth'         => '',
+            'father_in_law_date_birth'         => '',
 
-            'couple_name'         => 'required',
-            'couple_gender'         => 'required',
-            'couple_education'         => 'required',
-            'couple_place_birth'         => 'required',
-            'couple_date_birth'         => 'required',
+            'couple_name'         => '',
+            'couple_gender'         => '',
+            'couple_education'         => '',
+            'couple_place_birth'         => '',
+            'couple_date_birth'         => '',
             
-            'child1_name'         => 'required',
-            'child1_gender'         => 'required',
-            'child1_education'         => 'required',
-            'child1_place_birth'         => 'required',
-            'child1_date_birth'         => 'required',
+            'child1_name'         => '',
+            'child1_gender'         => '',
+            'child1_education'         => '',
+            'child1_place_birth'         => '',
+            'child1_date_birth'         => '',
 
-            'child2_name'         => 'required',
-            'child2_gender'         => 'required',
-            'child2_education'         => 'required',
-            'child2_place_birth'         => 'required',
-            'child2_date_birth'         => 'required',
+            'child2_name'         => '',
+            'child2_gender'         => '',
+            'child2_education'         => '',
+            'child2_place_birth'         => '',
+            'child2_date_birth'         => '',
 
-            'child3_name'         => 'required',
-            'child3_gender'         => 'required',
-            'child3_education'         => 'required',
-            'child3_place_birth'         => 'required',
-            'child3_date_birth'         => 'required',
+            'child3_name'         => '',
+            'child3_gender'         => '',
+            'child3_education'         => '',
+            'child3_place_birth'         => '',
+            'child3_date_birth'         => '',
 
-            'name_health'         => 'required',
-            'status_health'         => 'required',
-            'long'         => 'required',
-            'health_care_place'         => 'required',
-            'year_health'         => 'required',
+            'name_health'         => '',
+            'status_health'         => '',
+            'long'         => '',
+            'health_care_place'         => '',
+            'year_health'         => '',
 
-
-            'salary'         => 'required',
-            'insentif'         => 'required',
-            'premi_bk'         => 'required',
-            'premi_nbk'         => 'required',
-            'premi_kayu'         => 'required',
-            'premi_mb'         => 'required',
+            'NIK_employee'         => '',
+            'salary'         => '',
+            'insentif'         => '',
+            'premi_bk'         => '',
+            'premi_nbk'         => '',
+            'premi_kayu'         => '',
+            'premi_mb'         => '',
             'premi_rj'         => '',
         ]);
 
@@ -402,6 +402,7 @@ class PeopleController extends Controller
            // employee
         if($request->salary){
             $employees = [
+                'NIK_employee' =>$request->NIK_employee,
                 'salary' =>$request->salary,
                 'insentif' =>$request->insentif,
                 'premi_bk' =>$request->premi_bk,
@@ -418,15 +419,7 @@ class PeopleController extends Controller
             $employee = Employee::updateOrCreate(['id' => $request->id], $employees );
 
           }
-
-
-        
-
-
-            
-
-
-
+          return redirect('/admin/people')->with('success', 'New Employee Inserted!');
         return $dependent;
     }
 

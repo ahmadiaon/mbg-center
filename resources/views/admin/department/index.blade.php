@@ -403,8 +403,8 @@
 </div>
 
 {{-- modal add vehicle --}}
-<div class="modal fade" data-backdrop="false" id="add_vehicle_modal" tabindex="-1" role="dialog"
-    aria-labelledby="label_vehicle" aria-hidden="true">
+<div class="modal fade" data-backdrop="false" id="add_vehicle_modal" role="dialog" aria-labelledby="label_vehicle"
+    aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content shadow-lg p-3 mb-5 bg-white rounded">
             <div class="modal-header">
@@ -843,6 +843,12 @@
 {{-- modal vehicle --}}
 <script>
     function addvehicle() {
+        $('#add_vehicle_modal .select2').each(function() {  
+        var $p = $(this).parent(); 
+        $(this).select2({  
+            dropdownParent: $p  
+        });  
+        });
         $('#vehicle_group_id').empty();
             $.ajax({
                 url: '/admin/vehicle_group-all',

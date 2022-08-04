@@ -1643,10 +1643,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-1">
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Departement</label>
                                 <select name="department_id" class="custom-select2 form-control">
@@ -1674,6 +1674,20 @@
                                     @endif
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>NIK Employee</label>
+                                <input name="NIK_employee"
+                                    class="form-control @error('NIK_employee') is-invalid @enderror"
+                                    value="{{ old('NIK_employee') }}" id="NIK_employee" placeholder="MBLE-29990"
+                                    type="text">
+                                @error('NIK_employee')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-2"></div>

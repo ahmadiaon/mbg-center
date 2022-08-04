@@ -16,9 +16,8 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
 
+            
             // foreign key
-            $table->integer('employee_id')->nullable();
-
             $table->integer('people_id')->nullable();
             $table->integer('position_id')->nullable();
             $table->integer('department_id')->nullable();
